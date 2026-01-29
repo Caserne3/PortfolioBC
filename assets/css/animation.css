@@ -1,0 +1,56 @@
+/* --- Animation Styles --- */
+
+/* 
+   Ambient Light "Spotlight"
+   Metaphor: A fish swimming in the deep.
+   Interaction: Heavy Scroll Lag (Managed by JS).
+*/
+.ambient-light {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    /* Essential Centering + Dynamic Lag Transform */
+    transform: translate3d(-50%, calc(-50% + var(--scroll-offset, 0px)), 0) skewY(var(--skew-y, 0deg));
+
+    z-index: -1;
+    pointer-events: none;
+
+    /* Base Spotlight Dimensions */
+    width: 60vw;
+    /* Reduced initial size for more black space */
+    height: 60vh;
+
+    /* Deep Gradient */
+    background: radial-gradient(circle, rgba(41, 151, 255, 0.15) 0%, rgba(0, 0, 0, 0) 65%);
+
+    /* Performance Hints */
+    will-change: transform;
+
+    /* Animation: Breathe/Swim */
+    animation: swimPulse 12s infinite ease-in-out;
+}
+
+/* 
+    The "Swim" Pulse 
+    Gentle resizing to simulate life breathing.
+*/
+@keyframes swimPulse {
+
+    0%,
+    100% {
+        width: 60vw;
+        height: 60vh;
+        opacity: 0.8;
+    }
+
+    50% {
+        width: 70vw;
+        height: 70vh;
+        opacity: 1;
+    }
+}
+
+/* 
+   JS-driven Classes/States can be added here
+*/

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - CLOT Baptiste</title>
+    <meta name="description" content="Portfolio de CLOT Baptiste - Étudiant et Développeur">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">CB.</a>
+            <ul class="nav-links">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li class="dropdown-container">
+                    <a href="#projects" class="dropdown-trigger">
+                        Sarko Universe <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://sarkozyno-fortune.fr/" target="_blank" class="dropdown-item">Sarkozyno</a>
+                        </li>
+                        <li><a href="#" class="dropdown-item">SarkoMarket</a></li>
+                        <li><a href="#" class="dropdown-item">SarkoenZonzon</a></li>
+                        <li><a href="#" class="dropdown-item">Sarkartyno</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Bonjour, je suis <span class="highlight">CLOT Baptiste</span></h1>
+            <p class="hero-subtitle">Étudiant & Développeur Passionné</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Étudiant passionné par l'informatique et le développement. J'aime relever des défis techniques et
+                        créer des solutions innovantes.</p>
+                    <p>Actuellement en formation à l'Efrei, je développe mes compétences en administration système,
+                        réseaux et développement logiciel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <p class="section-subtitle">Aperçu de mes compétences techniques et transversales</p>
+
+            <!-- Grid de compétences (Squelette à remplir avec le détail de l'image) -->
+            <div class="skills-grid">
+                <!-- Catégorie: Support & Maintenance -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <h3>Support & Incidents</h3>
+                    <ul>
+                        <li>Gestion de tickets (GLPI)</li>
+                        <li>Diagnostic Hardware/Software</li>
+                        <li>Assistance utilisateurs</li>
+                    </ul>
+                </div>
+
+                <!-- Catégorie: Administration Système -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-server"></i>
+                    <h3>Administration Système</h3>
+                    <ul>
+                        <li>Windows 11 (Déploiement/Migration)</li>
+                        <li>Gestion de parc informatique</li>
+                        <li>Active Directory (notions)</li>
+                    </ul>
+                </div>
+
+                <!-- Catégorie: Réseau -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>Réseau</h3>
+                    <ul>
+                        <li>Cisco Packet Tracer</li>
+                        <li>Création de parcs virtuels</li>
+                        <li>Déploiement NAS</li>
+                    </ul>
+                </div>
+
+                <!-- Catégorie: Développement Web -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Développement Web</h3>
+                    <ul>
+                        <li>Création de sites (Sarkozyno, etc.)</li>
+                        <li>Intégration d'IA (FlashMind)</li>
+                        <li>HTML/CSS/JS/PHP</li>
+                    </ul>
+                </div>
+
+                <!-- Catégorie: Cybersécurité -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Cybersécurité</h3>
+                    <ul>
+                        <li>CTF (Capture The Flag)</li>
+                        <li>Sensibilisation</li>
+                    </ul>
+                </div>
+
+                <!-- Catégorie: Transverse -->
+                <div class="skill-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h3>Gestion de Projet</h3>
+                    <ul>
+                        <li>Travail en équipe</li>
+                        <li>Veille technologique</li>
+                        <li>Intégration nouveaux arrivants</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Réalisations Professionnelles</h2>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-image placeholder-img"></div>
+                    <div class="project-info">
+                        <h3>Sarkartyno / Sarkozyno</h3>
+                        <p>Site e-commerce et plateforme web développés dans le cadre de projets académiques.</p>
+                        <div class="tags">
+                            <span>Web</span>
+                            <span>PHP</span>
+                            <span>E-commerce</span>
+                        </div>
+                        <div class="project-links" style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="https://sarkozyno-fortune.fr/" target="_blank" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">Sarkozyno</a>
+                            <a href="#" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">SarkoMarket</a>
+                            <a href="#" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">SarkoenZonzon</a>
+                            <a href="#" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">Sarkartyno</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <div class="project-image placeholder-img"></div>
+                    <div class="project-info">
+                        <h3>FlashMind</h3>
+                        <p>Site de révision intégrant un agent IA pour l'aide à l'apprentissage.</p>
+                        <div class="tags">
+                            <span>IA</span>
+                            <span>Éducation</span>
+                            <span>Integration</span>
+                        </div>
+                        <br>
+                        <a href="https://site-flash-card-b59c4.web.app/" target="_blank" class="btn btn-secondary"
+                            style="margin-left:0; font-size:0.9rem;">Visiter le site</a>
+                    </div>
+                </article>
+
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <div class="project-image placeholder-img"></div>
+                    <div class="project-info">
+                        <h3>Infrastructures Réseau</h3>
+                        <p>Simulation et création de parcs réseaux virtuels via Cisco Packet Tracer.</p>
+                        <div class="tags">
+                            <span>Réseau</span>
+                            <span>Cisco</span>
+                            <span>Simulation</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Me Contacter</h2>
+            <div class="contact-wrapper"
+                style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 32px;">
+
+                <!-- Email Button (Primary) -->
+                <a href="mailto:baptiste.clot123@gmail.com" class="btn btn-primary"
+                    style="font-size: 1.2rem; padding: 20px 40px; width: 100%; max-width: 400px;">
+                    <i class="fa-solid fa-envelope" style="margin-right: 12px;"></i> baptiste.clot123@gmail.com
+                </a>
+
+                <!-- Separator -->
+                <div style="height: 1px; width: 100px; background: rgba(255,255,255,0.1);"></div>
+
+                <!-- Social Buttons (Secondary) -->
+                <div class="social-row" style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://fr.linkedin.com/in/bclot" target="_blank" class="btn btn-secondary">
+                        <i class="fa-brands fa-linkedin" style="margin-right: 8px;"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Caserne3" target="_blank" class="btn btn-secondary">
+                        <i class="fa-brands fa-github" style="margin-right: 8px;"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 CLOT Baptiste. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ambient Light Background -->
+    <div class="ambient-light"></div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
