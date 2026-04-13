@@ -346,6 +346,21 @@ section {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
+        /* Should fix it */
+    }
+
+    /* Extra robust fix for Firefox/IE */
+    .project-info .btn,
+    .project-info .project-links {
+        align-self: flex-start;
+        width: auto !important;
+        /* Force auto width */
+        max-width: 100%;
+        display: inline-flex;
+        /* Better for centering content inside */
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -527,6 +542,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+        /* Less padding on mobile */
+    }
+
     .nav-links {
         display: none;
         /* Hide for mobile */
@@ -536,9 +556,12 @@ footer {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--navbar-height));
-        background: #000;
+        background: rgba(0, 0, 0, 0.95);
+        /* More opaque */
         flex-direction: column;
         padding-top: 40px;
+        align-items: center;
+        /* Center items */
     }
 
     .nav-links.nav-active {
@@ -551,6 +574,12 @@ footer {
 
     .hero-title {
         font-size: 3rem;
+        /* Smaller title */
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        padding: 0 20px;
     }
 
     .project-card {
@@ -564,5 +593,16 @@ footer {
 
     .project-info {
         padding: 30px;
+        align-items: flex-start;
+    }
+
+    .contact-wrapper {
+        padding: 30px;
+        border-radius: 24px;
+    }
+
+    .contact-buttons-grid .btn-large-contact {
+        font-size: 1rem !important;
+        padding: 16px !important;
     }
 }
