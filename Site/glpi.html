@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique GLPI — CLOT Baptiste</title>
+    <meta name="description"
+        content="Preuves techniques du déploiement GLPI illustrant les compétences du BTS SIO (C1, C7, C11, C14, C17).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-glpi: #0078d4;
+            --accent-glpi-dim: rgba(0, 120, 212, 0.1);
+        }
+
+        .doc-hero {
+            padding-top: calc(var(--navbar-height) + 80px);
+            padding-bottom: 60px;
+            text-align: center;
+        }
+
+        .doc-hero .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 980px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .doc-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .doc-section {
+            padding-bottom: 120px;
+        }
+
+        .doc-card {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-l);
+            padding: 40px;
+            margin-bottom: 40px;
+            scroll-margin-top: calc(var(--navbar-height) + 40px); /* For anchor links */
+        }
+
+        .doc-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .doc-badge {
+            background: var(--accent-glpi-dim);
+            color: var(--accent-glpi);
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .doc-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .doc-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .doc-content h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            margin-top: 32px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-content h4 i {
+            color: var(--accent-glpi);
+            font-size: 0.9rem;
+        }
+
+        /* Code Block Styling */
+        .code-container {
+            position: relative;
+            margin-bottom: 24px;
+            border-radius: var(--radius-m);
+            overflow: hidden;
+            background: #1e1e1e;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'Consolas', monospace;
+        }
+
+        .code-header span {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-container pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+            color: #d4d4d4;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(-4px);
+        }
+
+        @media (max-width: 768px) {
+            .doc-hero h1 { font-size: 2.5rem; }
+            .doc-card { padding: 24px; }
+            .doc-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .doc-title { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
+
+    <!-- Hero -->
+    <section class="doc-hero">
+        <div class="container">
+            <div class="badge"><i class="fa-solid fa-folder-open"></i> Dossier Technique</div>
+            <h1>Preuves Techniques GLPI</h1>
+            <p>
+                Documentation détaillée illustrant la validation de compétences clés du BTS SIO 
+                à travers le déploiement de la solution ITSM GLPI.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="doc-section">
+        <div class="container">
+
+            <!-- C1 -->
+            <div class="doc-card" id="c1">
+                <div class="doc-header">
+                    <span class="doc-badge">C1</span>
+                    <h3 class="doc-title">Recenser et identifier les ressources numériques</h3>
+                </div>
+                <div class="doc-content">
+                    <p>Cette compétence est démontrée par l'installation et l'exécution de l'agent GLPI sur les postes clients afin d'automatiser la remontée de l'inventaire matériel et logiciel vers le serveur.</p>
+
+                    <h4><i class="fa-brands fa-windows"></i> Sur les postes Windows</h4>
+                    <p>Exécution du .msi via PowerShell en administrateur et forçage de la remontée d'inventaire :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>PowerShell</span></div>
+                        <pre><code>cd "C:\Program Files\GLPI-Agent"
+.\glpi-agent.bat --server http://192.168.1.18/marketplace/glpiinventory/ --force --debug</code></pre>
+                    </div>
+
+                    <p>Vérification du bon fonctionnement du service d'inventaire :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>PowerShell</span></div>
+                        <pre><code>Get-Service glpi-agent
+# Résultat attendu : Status: Running | Name: glpi-agent</code></pre>
+                    </div>
+
+                    <h4><i class="fa-brands fa-linux"></i> Sur les postes Debian</h4>
+                    <p>Installation du script Perl et forçage manuel :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>wget https://github.com/glpi-project/glpi-agent/releases/download/1.15/glpi-agent-1.15-linux-installer.pl -O glpi-agent.pl
+sudo perl glpi-agent.pl
+sudo glpi-agent --server http://192.168.1.18/marketplace/glpiinventory/ --force --debug</code></pre>
+                    </div>
+
+                    <h4><i class="fa-solid fa-image"></i> Résultat de l'inventaire</h4>
+                    <p>Visualisation des équipements et logiciels remontés dans l'interface GLPI :</p>
+                    <div class="doc-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px;">
+                        <img src="../assets/images/GLPI/C1glpi_recensement_1.png" alt="Inventaire matériel GLPI" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="../assets/images/GLPI/C1glpi_recensement_2.png" alt="Détails de l'inventaire GLPI" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- C7 -->
+            <div class="doc-card" id="c7">
+                <div class="doc-header">
+                    <span class="doc-badge">C7</span>
+                    <h3 class="doc-title">Collecter, suivre et orienter des demandes</h3>
+                </div>
+                <div class="doc-content">
+                    <p>GLPI intègre un module Helpdesk (gestion de tickets) qui permet de centraliser les demandes des utilisateurs. Techniquement, cette compétence s'illustre par la mise en place de la base de données MariaDB, indispensable pour stocker, suivre et orienter ces requêtes.</p>
+
+                    <h4><i class="fa-solid fa-database"></i> Création de la base de données</h4>
+                    <p>Création de la structure de base de données dédiée à GLPI avec un encodage adapté et sécurisation via un utilisateur spécifique (abandon du compte root) :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>SQL</span></div>
+                        <pre><code>CREATE DATABASE glpi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'MotDePasseFort!';
+GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
+FLUSH PRIVILEGES;</code></pre>
+                    </div>
+
+                    <h4><i class="fa-solid fa-image"></i> Interface Helpdesk</h4>
+                    <p>Aperçu du tableau de bord d'assistance et du suivi des tickets utilisateur :</p>
+                    <div class="doc-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px;">
+                        <img src="../assets/images/GLPI/C7glpi_dashboard.png" alt="Tableau de bord GLPI" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="../assets/images/GLPI/C7glpi_tickets.png" alt="Gestion des tickets GLPI" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- C11 -->
+            <div class="doc-card" id="c11">
+                <div class="doc-header">
+                    <span class="doc-badge">C11</span>
+                    <h3 class="doc-title">Référencer les services en lignes de l'organisation</h3>
+                </div>
+                <div class="doc-content">
+                    <p>Il s'agit ici de configurer l'accès au service GLPI sur le réseau, de s'assurer de sa disponibilité via une URL/IP spécifique, et de permettre son accès sécurisé (ex: via le VPN Tailscale).</p>
+
+                    <h4><i class="fa-solid fa-server"></i> Configuration Apache</h4>
+                    <p>Création du fichier VirtualHost Apache (/etc/apache2/sites-available/glpi.conf) pour référencer le service sur le port 80 avec redirection des requêtes via l'URL locale :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Apache</span></div>
+                        <pre><code>&lt;VirtualHost *:80&gt;
+    ServerName glpi.localhost
+    ServerAlias 192.168.X.X
+    DocumentRoot /var/www/glpi/public
+    &lt;Directory /var/www/glpi/public&gt;
+        Require all granted
+        RewriteEngine On
+        RewriteCond %{HTTP:Authorization} ^(.+)$
+        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule ^(.*)$ index.php [QSA,L]
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></pre>
+                    </div>
+
+                    <h4><i class="fa-solid fa-network-wired"></i> Routage et accès réseau</h4>
+                    <p>Activation du routage et connexion au réseau privé Tailscale :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>sudo a2enmod rewrite
+sudo a2ensite glpi.conf
+sudo tailscale up</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C14 -->
+            <div class="doc-card" id="c14">
+                <div class="doc-header">
+                    <span class="doc-badge">C14</span>
+                    <h3 class="doc-title">Planifier les activités</h3>
+                </div>
+                <div class="doc-content">
+                    <p>Cette compétence se prouve par la gestion des prérequis techniques avant le déploiement afin d'éviter les erreurs bloquantes, et par la vérification des services étape par étape.</p>
+
+                    <h4><i class="fa-solid fa-cubes"></i> Installation des prérequis</h4>
+                    <p>Installation planifiée de la pile logicielle complète (Apache, MariaDB, PHP) et anticipation des dépendances requises par l'installateur web de GLPI :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install -y apache2 mariadb-server unzip wget curl
+sudo apt install -y php php-cli php-common php-mysql php-mbstring php-curl php-xml php-gd php-intl php-zip php-bz2</code></pre>
+                    </div>
+
+                    <h4><i class="fa-solid fa-vial-circle-check"></i> Vérification des services</h4>
+                    <p>Vérification des modules chargés pour garantir que l'installation ne bloquera pas (notamment l'extension XML) :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>php -m | grep -E 'xml|dom|simplexml'
+sudo apache2ctl -S  # Vérification de la configuration Apache avant relance</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- C17 -->
+            <div class="doc-card" id="c17">
+                <div class="doc-header">
+                    <span class="doc-badge">C17</span>
+                    <h3 class="doc-title">Déployer un service</h3>
+                </div>
+                <div class="doc-content">
+                    <p><strong>Contexte de l'intervention</strong><br>
+                    Afin de rendre notre application web accessible aux utilisateurs finaux, j'ai procédé à son déploiement sur l'infrastructure cloud Firebase Hosting de Google. Ce service permet un hébergement rapide, sécurisé (certificat SSL automatique) et performant pour les applications web statiques ou dynamiques.</p>
+
+                    <h4><i class="fa-solid fa-terminal"></i> 1. Préparation de l'environnement local</h4>
+                    <p>Pour interagir avec les serveurs Firebase depuis mon terminal, il a d'abord fallu installer l'interface en ligne de commande (CLI) de Firebase via le gestionnaire de paquets de Node.js (npm).</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>npm install -g firebase-tools</code></pre>
+                    </div>
+                    <p>Ensuite, j'ai dû lier mon environnement local à mon compte Google/Firebase pour autoriser les futurs déploiements :</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>firebase login</code></pre>
+                    </div>
+                    <p style="font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.6);">Note : Cette commande ouvre une page web demandant l'autorisation d'accès au compte Google. Une fois validée, le terminal confirme que l'authentification a réussi.</p>
+
+                    <h4><i class="fa-solid fa-gear"></i> 2. Initialisation du projet Firebase</h4>
+                    <p>Dans le répertoire racine de mon projet web, j'ai initialisé la configuration Firebase pour lier mon code local au projet créé sur la console web Firebase.</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>firebase init</code></pre>
+                    </div>
+                    <p>Lors de cette étape interactive, j'ai sélectionné et configuré les options suivantes :</p>
+                    <ul style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; padding-left: 20px;">
+                        <li><strong>Fonctionnalité :</strong> Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys</li>
+                        <li><strong>Projet cible :</strong> Sélection du projet Firebase existant correspondant à mon application.</li>
+                        <li><strong>Dossier public :</strong> Définition du répertoire contenant les fichiers compilés prêts pour la production (ex: build, dist ou public selon le framework utilisé).</li>
+                        <li><strong>Configuration Single-Page App (SPA) :</strong> Yes (Réécriture de toutes les requêtes vers index.html).</li>
+                        <li><strong>Écraser index.html :</strong> No (Pour ne pas supprimer la page principale générée par mon code).</li>
+                    </ul>
+                    <p>Cette étape a généré deux fichiers de configuration essentiels à la racine de mon projet : <code>.firebaserc</code> (qui cible le projet) et <code>firebase.json</code> (qui contient les règles d'hébergement).</p>
+
+                    <h4><i class="fa-solid fa-cloud-arrow-up"></i> 3. Déploiement en production</h4>
+                    <p>Une fois le projet compilé et prêt, j'ai lancé la commande finale pour envoyer les fichiers vers les serveurs de Firebase.</p>
+                    <div class="code-container">
+                        <div class="code-header"><span>Bash</span></div>
+                        <pre><code>firebase deploy</code></pre>
+                    </div>
+                    <p style="font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.6);">(Résultat de la console indiquant le téléchargement des fichiers, la création de la version "Release" et fournissant l'URL finale d'hébergement)</p>
+                    <div class="doc-images" style="margin-top: 16px;">
+                        <img src="../assets/images/GLPI/C17firebase_deploy.png" alt="Terminal avec la commande firebase deploy" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                    </div>
+
+                    <h4><i class="fa-solid fa-check-double"></i> 4. Vérification et résultat</h4>
+                    <p>À l'issue du déploiement, le terminal renvoie l'URL de production (ex: https://mon-projet.web.app). J'ai effectué un test d'accès direct via le navigateur pour confirmer que le service était correctement déployé et que le certificat HTTPS était bien actif.</p>
+                    <div class="doc-images" style="margin-top: 16px;">
+                        <img src="../assets/images/GLPI/C17_deployement.png" alt="Console Firebase et vérification du déploiement" style="width: 100%; border-radius: var(--radius-m); border: 1px solid rgba(255,255,255,0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="../competences.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Retour aux Compétences
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Ambient Light Background -->
+    <div class="ambient-light"></div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
