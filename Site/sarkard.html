@@ -1,0 +1,682 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SarKard — CLOT Baptiste</title>
+    <meta name="description"
+        content="SarKard — Marketplace de cartes à collectionner avec système d'achat, vente et boosters. Développé en PHP/MySQL.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-sk: #e040fb;
+            --accent-sk-dim: rgba(224, 64, 251, 0.1);
+            --accent-sk-hover: #f06fff;
+            --accent-sk-gold: #ffd54f;
+        }
+
+        .project-hero {
+            padding-top: calc(var(--navbar-height) + 100px);
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        .project-hero .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 980px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .project-hero .badge i {
+            color: var(--accent-sk);
+        }
+
+        .project-hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #e040fb 0%, #7c4dff 50%, #e040fb 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .project-hero .hero-desc {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            line-height: 1.7;
+        }
+
+        .project-hero .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-sk {
+            background: linear-gradient(135deg, #e040fb, #9c27b0);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-sk:hover {
+            background: linear-gradient(135deg, #f06fff, #e040fb);
+            transform: scale(1.03);
+        }
+
+        /* Showcase */
+        .showcase-section {
+            padding-top: 0;
+            padding-bottom: 100px;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .showcase-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .showcase-card {
+            position: relative;
+            border-radius: var(--radius-l);
+            overflow: hidden;
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+        }
+
+        .showcase-card:hover {
+            border-color: rgba(224, 64, 251, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-card .card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+        }
+
+        .showcase-card .card-label h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .showcase-card .card-label p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-sk);
+            letter-spacing: -0.03em;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        /* Info */
+        .info-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-l);
+            padding: 48px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            background: rgba(44, 44, 46, 0.5);
+            transform: scale(1.01);
+        }
+
+        .info-card .info-icon {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--accent-sk-dim);
+            color: var(--accent-sk);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .info-card ul {
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li i {
+            color: var(--accent-sk);
+            font-size: 0.75rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        .info-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Architecture diagram */
+        .archi-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .archi-block {
+            background: rgba(224, 64, 251, 0.08);
+            border: 1px solid rgba(224, 64, 251, 0.2);
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-align: center;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .archi-block small {
+            display: block;
+            font-weight: 400;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .archi-arrow {
+            color: var(--accent-sk);
+            font-size: 1.2rem;
+        }
+
+        /* Tech badges */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            padding: 8px 18px;
+            border-radius: 980px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .tech-badge:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(224, 64, 251, 0.3);
+        }
+
+        .tech-badge i {
+            color: var(--accent-sk);
+        }
+
+        /* Competences */
+        .competences-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .competences-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .comp-item {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-m);
+            padding: 28px 24px;
+            transition: var(--transition);
+        }
+
+        .comp-item:hover {
+            background: rgba(44, 44, 46, 0.5);
+            border-color: rgba(224, 64, 251, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .comp-item .comp-id {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-sk);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .comp-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .comp-item .comp-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 48px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(-4px);
+        }
+
+        @media (max-width: 900px) {
+            .showcase-row {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competences-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .competences-list {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .hero-desc {
+                font-size: 1.1rem;
+            }
+
+            .info-card {
+                padding: 32px 24px;
+            }
+
+            .stat-item .stat-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
+
+    <!-- Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="badge"><i class="fa-solid fa-star"></i> Projet Phare — Full-Stack</div>
+            <h1>SarKard</h1>
+            <p class="hero-desc">
+                Marketplace de cartes à collectionner avec marché libre entre joueurs,
+                système de boosters, collection personnelle et gestion de profil.
+                Un projet full-stack complet avec PHP, MySQL et XAMPP.
+            </p>
+            <div class="hero-cta">
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Tous les projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="showcase-section section">
+        <div class="container">
+            <h2 class="section-title">Captures du projet</h2>
+            <p class="section-subtitle">Les différentes interfaces de la plateforme SarKard</p>
+
+            <div class="showcase-grid">
+                <!-- Homepage full width -->
+                <div class="showcase-card">
+                    <img src="../assets/images/sarkard/homepage.png"
+                        alt="Page d'accueil SarKard — Ambiance synthwave rétro-futuriste">
+                    <div class="card-label">
+                        <h3></h3>Marché des cartes</h3>
+                        <p>Achat libre entre joueurs avec filtre par rareté</p>
+                    </div>
+                </div>
+
+                <!-- Marketplace + Collection -->
+                <div class="showcase-row">
+                    <div class="showcase-card">
+                        <img src="../assets/images/sarkard/marketplace.png"
+                            alt="Marché des cartes — Achat et vente entre joueurs">
+                        <div class="card-label">
+                            <h3>>Page d'accueil</h3>
+                            <p>Landing page synthwave avec navigation complète</p>
+                        </div>
+                    </div>
+                    <div class="showcase-card">
+                        <img src="../assets/images/sarkard/collection.png"
+                            alt="Ma Collection — Gestion des cartes possédées">
+                        <div class="card-label">
+                            <h3>Ma Collection</h3>
+                            <p>Gestion et mise en vente des cartes possédées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Pages PHP</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">Tables SQL</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Raretés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">CRUD</div>
+                    <div class="stat-label">Complet</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Info -->
+    <section class="info-section section">
+        <div class="container">
+            <h2 class="section-title">À propos du projet</h2>
+            <p class="section-subtitle">Architecture, fonctionnalités et apprentissages</p>
+
+            <div class="info-grid">
+                <!-- Concept -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Concept</h3>
+                    <p>
+                        SarKard est une plateforme de cartes à collectionner en ligne.
+                        Les joueurs s'inscrivent, ouvrent des boosters pour obtenir des cartes de
+                        différentes raretés (commune, rare, légendaire), et peuvent les revendre
+                        librement sur le marché à d'autres joueurs. Le prix est fixé par le vendeur,
+                        créant une véritable économie de marché virtuelle.
+                    </p>
+                </div>
+
+                <!-- Features -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <h3>Fonctionnalités</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Inscription / Connexion sécurisée</li>
+                        <li><i class="fa-solid fa-circle"></i> Ouverture de boosters avec drop aléatoire</li>
+                        <li><i class="fa-solid fa-circle"></i> Marché libre : achat et vente entre joueurs</li>
+                        <li><i class="fa-solid fa-circle"></i> Filtrage par rareté sur le marketplace</li>
+                        <li><i class="fa-solid fa-circle"></i> Collection personnelle avec gestion de vente</li>
+                        <li><i class="fa-solid fa-circle"></i> Système de crédits et profil utilisateur</li>
+                        <li><i class="fa-solid fa-circle"></i> Boutique pour acheter des boosters</li>
+                    </ul>
+                </div>
+
+                <!-- Architecture (full width) -->
+                <div class="info-card full-width">
+                    <div class="info-icon"><i class="fa-solid fa-sitemap"></i></div>
+                    <h3>Architecture technique</h3>
+                    <p>Application web MVC classique avec séparation front/back et base de données relationnelle.</p>
+                    <div class="archi-flow">
+                        <div class="archi-block">
+                            <i class="fa-solid fa-desktop"></i> Front-end
+                            <small>HTML / CSS / JS</small>
+                        </div>
+                        <span class="archi-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        <div class="archi-block">
+                            <i class="fa-brands fa-php"></i> Back-end
+                            <small>PHP 8 / Sessions</small>
+                        </div>
+                        <span class="archi-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        <div class="archi-block">
+                            <i class="fa-solid fa-database"></i> Base de données
+                            <small>MySQL / PDO</small>
+                        </div>
+                        <span class="archi-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        <div class="archi-block">
+                            <i class="fa-solid fa-server"></i> Serveur
+                            <small>XAMPP / Apache</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What I learned -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Ce que j'ai appris</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Développement full-stack PHP/MySQL</li>
+                        <li><i class="fa-solid fa-circle"></i> Modélisation de BDD relationnelle</li>
+                        <li><i class="fa-solid fa-circle"></i> Opérations CRUD complètes</li>
+                        <li><i class="fa-solid fa-circle"></i> Gestion des sessions et authentification</li>
+                        <li><i class="fa-solid fa-circle"></i> Requêtes SQL préparées (sécurité)</li>
+                        <li><i class="fa-solid fa-circle"></i> Logique métier complexe (transactions)</li>
+                    </ul>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Stack technique</h3>
+                    <p>Technologies utilisées pour ce projet :</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge"><i class="fa-brands fa-php"></i> PHP 8</span>
+                        <span class="tech-badge"><i class="fa-solid fa-database"></i> MySQL</span>
+                        <span class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span class="tech-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span class="tech-badge"><i class="fa-solid fa-server"></i> XAMPP / Apache</span>
+                        <span class="tech-badge"><i class="fa-solid fa-lock"></i> PDO / Sessions</span>
+                        <span class="tech-badge"><i class="fa-solid fa-palette"></i> Synthwave UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competences -->
+    <section class="competences-section section">
+        <div class="container">
+            <h2 class="section-title">Compétences mobilisées</h2>
+            <p class="section-subtitle">Ce projet couvre un large spectre de compétences du référentiel BTS SIO</p>
+
+            <div class="competences-list">
+                <div class="comp-item">
+                    <div class="comp-id">C3</div>
+                    <h4>Mettre en place et vérifier les niveaux d'habilitation</h4>
+                    <p class="comp-desc">Système de connexion avec sessions PHP et contrôle d'accès aux pages.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C4</div>
+                    <h4>Vérifier les conditions de la continuité d'un service informatique</h4>
+                    <p class="comp-desc">Validation des transactions d'achat/vente pour garantir la cohérence des
+                        données.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C6</div>
+                    <h4>Vérifier le respect des règles d'utilisation des ressources numériques</h4>
+                    <p class="comp-desc">Requêtes SQL préparées pour prévenir les injections et sécuriser les données.
+                    </p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C7</div>
+                    <h4>Collecter, suivre et orienter des demandes</h4>
+                    <p class="comp-desc">Gestion des demandes d'achat sur le marché et suivi des transactions.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C8</div>
+                    <h4>Traiter des demandes concernant les services réseau et système</h4>
+                    <p class="comp-desc">Configuration et maintenance du serveur XAMPP (Apache + MySQL).</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C10</div>
+                    <h4>Valoriser l'image de l'organisation sur les médias numériques</h4>
+                    <p class="comp-desc">Design synthwave soigné renforçant l'identité visuelle du projet.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C11</div>
+                    <h4>Référencer les services en ligne de l'organisation</h4>
+                    <p class="comp-desc">Configuration du serveur web local et des routes d'accès.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C15</div>
+                    <h4>Évaluer les indicateurs de suivi d'un projet et analyser les écarts</h4>
+                    <p class="comp-desc">Tests fonctionnels des transactions et vérification de la cohérence BDD.</p>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C18</div>
+                    <h4>Accompagner les utilisateurs dans la mise en place d'un service</h4>
+                    <p class="comp-desc">Interface intuitive et guidage utilisateur à travers les différentes sections.
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="../index.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Retour au Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <div class="ambient-light"></div>
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

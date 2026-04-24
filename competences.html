@@ -1,3 +1,4 @@
+x
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,34 +19,9 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">CB.</a>
-            <ul class="nav-links">
-                <li><a href="index.html#about">À propos</a></li>
-                <li><a href="index.html#skills">Compétences</a></li>
-                <li class="dropdown-container">
-                    <a href="index.html#projects" class="dropdown-trigger">
-                        Sarko Universe <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://sarkozyno-fortune.fr/" target="_blank"
-                                class="dropdown-item">Sarkozyno</a></li>
-                        <li><a href="#" class="dropdown-item">SarkoMarket</a></li>
-                        <li><a href="#" class="dropdown-item">SarkoenZonzon</a></li>
-                        <li><a href="#" class="dropdown-item">Sarkartyno</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </div>
-    </nav>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
 
     <!-- Hero -->
     <section class="competences-hero">
@@ -54,7 +30,8 @@
             <p class="section-subtitle">
                 Chaque carte présente une compétence du référentiel BTS SIO SISR,
                 illustrée par une action concrète réalisée lors de mon projet de déploiement GLPI.
-                <br><strong style="color: rgba(255,255,255,0.4); font-size: 0.85rem;">Survolez pour découvrir l'action réalisée.</strong>
+                <br><strong style="color: rgba(255,255,255,0.4); font-size: 0.85rem;">Survolez pour découvrir l'action
+                    réalisée.</strong>
             </p>
         </div>
     </section>
@@ -82,12 +59,16 @@
                             <span class="card-number">C1</span>
                             <i class="fa-solid fa-clipboard-list card-icon"></i>
                             <h3 class="card-title">Recenser et identifier les ressources numériques</h3>
-                            <p class="card-description">Utilisation de GLPI pour centraliser l'inventaire matériel et logiciel.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <p class="card-description">Utilisation de GLPI pour centraliser l'inventaire matériel et
+                                logiciel.</p>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Mise en place d'une remontée automatique des informations systèmes (CPU, RAM, OS, logiciels installés) depuis des machines clientes (Debian et Windows) vers le serveur central.</p>
+                            <p class="back-action">Mise en place d'une remontée automatique des informations systèmes
+                                (CPU, RAM, OS, logiciels installés) depuis des machines clientes (Debian et Windows)
+                                vers le serveur central.</p>
                         </div>
                     </div>
                 </div>
@@ -100,11 +81,14 @@
                             <i class="fa-solid fa-book card-icon"></i>
                             <h3 class="card-title">Exploiter des référentiels, normes et standards</h3>
                             <p class="card-description">Respect des standards de déploiement Web et de sécurité.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Installation de la pile LAMP (Linux Apache MariaDB PHP) en suivant les prérequis officiels de l'éditeur GLPI 10 (extensions PHP spécifiques, version de MariaDB).</p>
+                            <p class="back-action">Installation de la pile LAMP (Linux Apache MariaDB PHP) en suivant
+                                les prérequis officiels de l'éditeur GLPI 10 (extensions PHP spécifiques, version de
+                                MariaDB).</p>
                         </div>
                     </div>
                 </div>
@@ -117,11 +101,14 @@
                             <i class="fa-solid fa-user-lock card-icon"></i>
                             <h3 class="card-title">Mettre en place et vérifier les niveaux d'habilitation</h3>
                             <p class="card-description">Gestion des accès à la plateforme et à la base de données.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Création d'un utilisateur SQL dédié (glpi@localhost) avec des privilèges restreints à la base de données glpi. Configuration des droits d'accès système (chown www-data) pour sécuriser les fichiers du serveur.</p>
+                            <p class="back-action">Création d'un utilisateur SQL dédié (glpi@localhost) avec des
+                                privilèges restreints à la base de données glpi. Configuration des droits d'accès
+                                système (chown www-data) pour sécuriser les fichiers du serveur.</p>
                         </div>
                     </div>
                 </div>
@@ -132,13 +119,17 @@
                         <div class="flip-card-front">
                             <span class="card-number">C4</span>
                             <i class="fa-solid fa-heart-pulse card-icon"></i>
-                            <h3 class="card-title">Vérifier les conditions de la continuité d'un service informatique</h3>
+                            <h3 class="card-title">Vérifier les conditions de la continuité d'un service informatique
+                            </h3>
                             <p class="card-description">Surveillance et diagnostic pour maintenir le service actif.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Utilisation de systemctl status et analyse des logs Apache (error.log) et de l'agent pour identifier et corriger les erreurs de communication (ex: erreur 403 Forbidden).</p>
+                            <p class="back-action">Utilisation de systemctl status et analyse des logs Apache
+                                (error.log) et de l'agent pour identifier et corriger les erreurs de communication (ex:
+                                erreur 403 Forbidden).</p>
                         </div>
                     </div>
                 </div>
@@ -151,11 +142,13 @@
                             <i class="fa-solid fa-database card-icon"></i>
                             <h3 class="card-title">Gérer des sauvegardes</h3>
                             <p class="card-description">Stratégie de préservation des données de l'inventaire.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Exportation des rapports d'inventaire en formats CSV/PDF et préparation de la base MariaDB pour des sauvegardes SQL régulières.</p>
+                            <p class="back-action">Exportation des rapports d'inventaire en formats CSV/PDF et
+                                préparation de la base MariaDB pour des sauvegardes SQL régulières.</p>
                         </div>
                     </div>
                 </div>
@@ -166,13 +159,16 @@
                         <div class="flip-card-front">
                             <span class="card-number">C6</span>
                             <i class="fa-solid fa-shield-halved card-icon"></i>
-                            <h3 class="card-title">Vérifier le respect des règles d'utilisation des ressources numériques</h3>
+                            <h3 class="card-title">Vérifier le respect des règles d'utilisation des ressources
+                                numériques</h3>
                             <p class="card-description">Contrôle de la conformité logicielle.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Utilisation de l'inventaire logiciel GLPI pour lister les programmes installés sur les postes clients et vérifier l'absence de logiciels non autorisés.</p>
+                            <p class="back-action">Utilisation de l'inventaire logiciel GLPI pour lister les programmes
+                                installés sur les postes clients et vérifier l'absence de logiciels non autorisés.</p>
                         </div>
                     </div>
                 </div>
@@ -184,12 +180,15 @@
                             <span class="card-number">C7</span>
                             <i class="fa-solid fa-ticket card-icon"></i>
                             <h3 class="card-title">Collecter, suivre et orienter des demandes</h3>
-                            <p class="card-description">Mise en place du socle pour la gestion d'incidents (Helpdesk).</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <p class="card-description">Mise en place du socle pour la gestion d'incidents (Helpdesk).
+                            </p>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Configuration initiale de l'interface de GLPI permettant la création ultérieure de tickets basés sur les machines inventoriées.</p>
+                            <p class="back-action">Configuration initiale de l'interface de GLPI permettant la création
+                                ultérieure de tickets basés sur les machines inventoriées.</p>
                         </div>
                     </div>
                 </div>
@@ -202,11 +201,13 @@
                             <i class="fa-solid fa-network-wired card-icon"></i>
                             <h3 class="card-title">Traiter des demandes concernant les services réseau et système</h3>
                             <p class="card-description">Résolution des problèmes liés au déploiement.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Intervention technique pour forcer la remontée d'inventaire via la ligne de commande (--force --debug) suite à des échecs de connexion réseau.</p>
+                            <p class="back-action">Intervention technique pour forcer la remontée d'inventaire via la
+                                ligne de commande (--force --debug) suite à des échecs de connexion réseau.</p>
                         </div>
                     </div>
                 </div>
@@ -219,11 +220,13 @@
                             <i class="fa-solid fa-puzzle-piece card-icon"></i>
                             <h3 class="card-title">Traiter des demandes concernant les applications</h3>
                             <p class="card-description">Support lié au fonctionnement de l'outil GLPI lui-même.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Installation et activation du plugin GLPI Inventory via la Marketplace pour répondre au besoin métier de l'inventaire automatique.</p>
+                            <p class="back-action">Installation et activation du plugin GLPI Inventory via la
+                                Marketplace pour répondre au besoin métier de l'inventaire automatique.</p>
                         </div>
                     </div>
                 </div>
@@ -236,11 +239,13 @@
                             <i class="fa-solid fa-bullhorn card-icon"></i>
                             <h3 class="card-title">Valoriser l'image de l'organisation sur les médias numériques</h3>
                             <p class="card-description">Communication professionnelle et cadre légal.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Rédaction d'une documentation technique claire et structurée reflétant la rigueur et le savoir-faire technique de l'équipe informatique.</p>
+                            <p class="back-action">Rédaction d'une documentation technique claire et structurée
+                                reflétant la rigueur et le savoir-faire technique de l'équipe informatique.</p>
                         </div>
                     </div>
                 </div>
@@ -253,11 +258,13 @@
                             <i class="fa-solid fa-globe card-icon"></i>
                             <h3 class="card-title">Référencer les services en ligne de l'organisation</h3>
                             <p class="card-description">Rendre le service accessible aux utilisateurs.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Configuration d'un VirtualHost Apache (glpi.conf) avec un ServerName spécifique pour permettre l'accès à la plateforme via une URL dédiée sur le réseau.</p>
+                            <p class="back-action">Configuration d'un VirtualHost Apache (glpi.conf) avec un ServerName
+                                spécifique pour permettre l'accès à la plateforme via une URL dédiée sur le réseau.</p>
                         </div>
                     </div>
                 </div>
@@ -270,11 +277,14 @@
                             <i class="fa-solid fa-code-branch card-icon"></i>
                             <h3 class="card-title">Participer à l'évolution d'un site Web</h3>
                             <p class="card-description">Optimisation et mise à jour de la plateforme.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Utilisation de Tailscale pour étendre l'accès au serveur GLPI à travers un VPN sécurisé, permettant l'évolution de l'infrastructure vers un accès distant.</p>
+                            <p class="back-action">Utilisation de Tailscale pour étendre l'accès au serveur GLPI à
+                                travers un VPN sécurisé, permettant l'évolution de l'infrastructure vers un accès
+                                distant.</p>
                         </div>
                     </div>
                 </div>
@@ -285,13 +295,17 @@
                         <div class="flip-card-front">
                             <span class="card-number">C13</span>
                             <i class="fa-solid fa-diagram-project card-icon"></i>
-                            <h3 class="card-title">Analyser les objectifs et les modalités d'organisation d'un projet</h3>
+                            <h3 class="card-title">Analyser les objectifs et les modalités d'organisation d'un projet
+                            </h3>
                             <p class="card-description">Compréhension du besoin de centralisation.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Définition des étapes clés (préparation VM, installation SQL, déploiement agents) pour répondre à l'objectif de gestion globale du système d'information.</p>
+                            <p class="back-action">Définition des étapes clés (préparation VM, installation SQL,
+                                déploiement agents) pour répondre à l'objectif de gestion globale du système
+                                d'information.</p>
                         </div>
                     </div>
                 </div>
@@ -304,11 +318,13 @@
                             <i class="fa-solid fa-calendar-check card-icon"></i>
                             <h3 class="card-title">Planifier les activités</h3>
                             <p class="card-description">Organisation chronologique du déploiement.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Respect d'un workflow logique : configuration serveur d'abord, puis base de données, puis interface web, et enfin déploiement des agents clients.</p>
+                            <p class="back-action">Respect d'un workflow logique : configuration serveur d'abord, puis
+                                base de données, puis interface web, et enfin déploiement des agents clients.</p>
                         </div>
                     </div>
                 </div>
@@ -319,13 +335,17 @@
                         <div class="flip-card-front">
                             <span class="card-number">C15</span>
                             <i class="fa-solid fa-chart-line card-icon"></i>
-                            <h3 class="card-title">Évaluer les indicateurs de suivi d'un projet et analyser les écarts</h3>
+                            <h3 class="card-title">Évaluer les indicateurs de suivi d'un projet et analyser les écarts
+                            </h3>
                             <p class="card-description">Test de conformité du déploiement.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Vérification dans l'onglet "Parc > Ordinateurs" que chaque machine déployée remonte correctement. Analyse des logs en cas d'absence de remontée (écart constaté vs résultat attendu).</p>
+                            <p class="back-action">Vérification dans l'onglet "Parc > Ordinateurs" que chaque machine
+                                déployée remonte correctement. Analyse des logs en cas d'absence de remontée (écart
+                                constaté vs résultat attendu).</p>
                         </div>
                     </div>
                 </div>
@@ -338,11 +358,13 @@
                             <i class="fa-solid fa-vials card-icon"></i>
                             <h3 class="card-title">Réaliser les tests d'intégration et d'acceptation d'un service</h3>
                             <p class="card-description">Validation fonctionnelle.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Exécution de la commande d'inventaire manuel sur Windows et Debian et validation de l'apparition des données techniques dans la console GLPI.</p>
+                            <p class="back-action">Exécution de la commande d'inventaire manuel sur Windows et Debian et
+                                validation de l'apparition des données techniques dans la console GLPI.</p>
                         </div>
                     </div>
                 </div>
@@ -355,11 +377,13 @@
                             <i class="fa-solid fa-rocket card-icon"></i>
                             <h3 class="card-title">Déployer un service</h3>
                             <p class="card-description">Installation complète de la solution.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Déploiement du package GLPI 10.0.20 sur un serveur Debian 13, configuration du serveur Web Apache et installation des agents MSI sur Windows.</p>
+                            <p class="back-action">Déploiement du package GLPI 10.0.20 sur un serveur Debian 13,
+                                configuration du serveur Web Apache et installation des agents MSI sur Windows.</p>
                         </div>
                     </div>
                 </div>
@@ -372,11 +396,14 @@
                             <i class="fa-solid fa-handshake-angle card-icon"></i>
                             <h3 class="card-title">Accompagner les utilisateurs dans la mise en place d'un service</h3>
                             <p class="card-description">Support et transfert de compétences.</p>
-                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir l'action</span>
+                            <span class="card-flip-hint"><i class="fa-solid fa-rotate"></i> Survoler pour voir
+                                l'action</span>
                         </div>
                         <div class="flip-card-back">
                             <span class="back-label">Action réalisée</span>
-                            <p class="back-action">Rédaction de procédures simplifiées (comme l'utilisation de PowerShell pour forcer l'inventaire) afin d'aider les collaborateurs à maintenir leur poste à jour dans l'inventaire.</p>
+                            <p class="back-action">Rédaction de procédures simplifiées (comme l'utilisation de
+                                PowerShell pour forcer l'inventaire) afin d'aider les collaborateurs à maintenir leur
+                                poste à jour dans l'inventaire.</p>
                         </div>
                     </div>
                 </div>
@@ -444,6 +471,9 @@
             }
         });
     </script>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
 </body>
 
 </html>

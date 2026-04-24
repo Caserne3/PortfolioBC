@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de synthèse — CLOT Baptiste</title>
+    <meta name="description" content="Tableau de synthèse des compétences et activités — Portfolio de CLOT Baptiste.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animation.css">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Tableau Page Specific Styles --- */
+        .tableau-hero {
+            padding-top: calc(var(--navbar-height) + 80px);
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .tableau-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .tableau-container {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-l);
+            padding: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .tableau-container:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .tableau-container iframe {
+            width: 100%;
+            min-height: 700px;
+            border: none;
+            border-radius: calc(var(--radius-l) - 4px);
+            display: block;
+        }
+
+        /* Placeholder shown if iframe src is empty */
+        .tableau-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            color: var(--text-secondary);
+            gap: 24px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .tableau-placeholder i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.12);
+        }
+
+        .tableau-placeholder h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .tableau-placeholder p {
+            max-width: 500px;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .tableau-placeholder code {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+        }
+
+        /* Glow accent behind the tableau */
+        .tableau-glow {
+            position: absolute;
+            width: 60%;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse, rgba(41, 151, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tableau-section .container {
+            position: relative;
+        }
+
+        /* Back link */
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 48px;
+            transition: var(--transition);
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-hover);
+            transform: translateX(-4px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tableau-hero {
+                padding-top: calc(var(--navbar-height) + 40px);
+                padding-bottom: 20px;
+            }
+
+            .tableau-container iframe {
+                min-height: 450px;
+            }
+
+            .tableau-container {
+                padding: 4px;
+                border-radius: var(--radius-m);
+            }
+
+            .tableau-container iframe {
+                border-radius: calc(var(--radius-m) - 2px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
+
+    <!-- Hero -->
+    <section class="tableau-hero">
+        <div class="container">
+            <h1 class="section-title">Tableau de synthèse</h1>
+            <p class="section-subtitle">
+                Tableau récapitulatif de mes compétences et activités professionnelles,
+                mis à jour automatiquement depuis Excel.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tableau Section -->
+    <section class="tableau-section section">
+        <div class="container">
+            <div class="tableau-glow"></div>
+
+            <div class="tableau-container" id="tableauContainer">
+                <iframe width="402" height="346" frameborder="0" scrolling="no"
+                    src="https://efrei365net-my.sharepoint.com/personal/baptiste_clot_efrei_net/_layouts/15/Doc.aspx?sourcedoc={196bba64-8fd4-4d59-810b-e73acfbaf59f}&action=embedview&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe>
+
+            </div>
+
+            <!-- Back to portfolio -->
+            <div style="text-align: center;">
+                <a href="index.html" class="back-to-top">
+                    <i class="fa-solid fa-arrow-left"></i> Retour au Portfolio
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Ambient Light Background -->
+    <div class="ambient-light"></div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SarkoMarket — CLOT Baptiste</title>
+    <meta name="description"
+        content="Présentation du projet SarkoMarket — Jeu idle/clicker de gestion de supermarché développé en JavaScript.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================
+           SarkoMarket Project Page
+           ============================ */
+
+        :root {
+            --accent-market: #34d399;
+            --accent-market-dim: rgba(52, 211, 153, 0.1);
+            --accent-market-hover: #6ee7b7;
+        }
+
+        /* --- Hero --- */
+        .project-hero {
+            padding-top: calc(var(--navbar-height) + 100px);
+            padding-bottom: 80px;
+            text-align: center;
+        }
+
+        .project-hero .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 980px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .project-hero .badge i {
+            color: var(--accent-market);
+        }
+
+        .project-hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #34d399 0%, #a7f3d0 40%, #34d399 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .project-hero .hero-desc {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 660px;
+            margin: 0 auto 40px auto;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .project-hero .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-hero .btn-market {
+            background: linear-gradient(135deg, #34d399, #059669);
+            color: #000;
+            font-weight: 600;
+            border: none;
+        }
+
+        .project-hero .btn-market:hover {
+            background: linear-gradient(135deg, #6ee7b7, #34d399);
+            transform: scale(1.03);
+        }
+
+        /* --- Showcase --- */
+        .showcase-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .showcase-frame {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: var(--radius-l);
+            overflow: hidden;
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+        }
+
+        .showcase-frame:hover {
+            border-color: rgba(52, 211, 153, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .showcase-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .showcase-frame .frame-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        }
+
+        .showcase-frame .frame-label h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .showcase-frame .frame-label p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-market);
+            letter-spacing: -0.03em;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        /* --- Info Section --- */
+        .info-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-l);
+            padding: 48px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            background: rgba(44, 44, 46, 0.5);
+            transform: scale(1.01);
+        }
+
+        .info-card .info-icon {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--accent-market-dim);
+            color: var(--accent-market);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .info-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .info-card ul {
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card ul li i {
+            color: var(--accent-market);
+            font-size: 0.75rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* --- Tech Stack Badges --- */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            padding: 8px 18px;
+            border-radius: 980px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .tech-badge:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(52, 211, 153, 0.3);
+        }
+
+        .tech-badge i {
+            color: var(--accent-market);
+        }
+
+        /* --- Competences Section --- */
+        .competences-section {
+            padding-top: 0;
+            padding-bottom: 120px;
+        }
+
+        .competences-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .comp-item {
+            background: rgba(28, 28, 30, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-m);
+            padding: 28px 24px;
+            transition: var(--transition);
+        }
+
+        .comp-item:hover {
+            background: rgba(44, 44, 46, 0.5);
+            border-color: rgba(52, 211, 153, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .comp-item .comp-id {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-market);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .comp-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* --- Back link --- */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-top: 48px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(-4px);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competences-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 3rem;
+            }
+
+            .stats-bar {
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .competences-list {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .hero-desc {
+                font-size: 1.1rem;
+            }
+
+            .info-card {
+                padding: 32px 24px;
+            }
+
+            .stats-bar {
+                gap: 24px;
+            }
+
+            .stat-item .stat-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
+
+    <!-- Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="badge"><i class="fa-solid fa-cart-shopping"></i> Jeu Idle / Clicker</div>
+            <h1>SarkoMarket</h1>
+            <p class="hero-desc">
+                Jeu idle de gestion de supermarché. Scannez les codes-barres des clients,
+                recrutez du personnel, achetez des améliorations et développez votre empire commercial.
+            </p>
+            <div class="hero-cta">
+                <a href="../index.html#projects" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Tous les projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase -->
+    <section class="showcase-section section">
+        <div class="container">
+            <h2 class="section-title">Aperçu du jeu</h2>
+            <p class="section-subtitle">Interface de gestion du supermarché</p>
+
+            <div class="showcase-frame" id="showcase-gameplay">
+                <img src="../assets/images/sarkomarket/gameplay.png"
+                    alt="Interface SarkoMarket — Scanner de code-barres, clients et améliorations">
+                <div class="frame-label">
+                    <h3>Interface principale</h3>
+                    <p>Scanner, clients et système de recrutement</p>
+                </div>
+            </div>
+
+            <!-- Stats bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Modules JS</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8+</div>
+                    <div class="stat-label">Améliorations</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">ES6</div>
+                    <div class="stat-label">Architecture</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Info -->
+    <section class="info-section section">
+        <div class="container">
+            <h2 class="section-title">À propos du projet</h2>
+            <p class="section-subtitle">Architecture modulaire et mécaniques de jeu</p>
+
+            <div class="info-grid">
+                <!-- Description -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>Concept</h3>
+                    <p>
+                        SarkoMarket est un jeu idle/clicker où le joueur gère un supermarché.
+                        Les clients arrivent avec des demandes spécifiques et un code-barres à scanner.
+                        L'argent gagné permet de recruter du personnel (caissier stagiaire, caisse automatique,
+                        drive…) qui génère des revenus passifs, et d'acheter des améliorations
+                        qui augmentent les gains.
+                    </p>
+                </div>
+
+                <!-- Features -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-barcode"></i></div>
+                    <h3>Fonctionnalités</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Scanner de code-barres avec validation</li>
+                        <li><i class="fa-solid fa-circle"></i> Clients générés dynamiquement</li>
+                        <li><i class="fa-solid fa-circle"></i> Revenus passifs (Money Per Second)</li>
+                        <li><i class="fa-solid fa-circle"></i> 8+ améliorations avec coûts progressifs</li>
+                        <li><i class="fa-solid fa-circle"></i> Système de licences pour débloquer des produits</li>
+                        <li><i class="fa-solid fa-circle"></i> Sauvegarde automatique (localStorage)</li>
+                    </ul>
+                </div>
+
+                <!-- What I learned -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Ce que j'ai appris</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-circle"></i> Architecture modulaire ES6 (import/export)</li>
+                        <li><i class="fa-solid fa-circle"></i> Patron MVC (Game, UI, Market séparés)</li>
+                        <li><i class="fa-solid fa-circle"></i> Game loop avec requestAnimationFrame</li>
+                        <li><i class="fa-solid fa-circle"></i> Persistance des données (localStorage)</li>
+                        <li><i class="fa-solid fa-circle"></i> Gestion d'état complexe (argent, upgrades, buffs)</li>
+                    </ul>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="info-card">
+                    <div class="info-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Stack technique</h3>
+                    <p>Technologies utilisées pour ce projet :</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span class="tech-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                        <span class="tech-badge"><i class="fa-brands fa-js"></i> JavaScript ES6+</span>
+                        <span class="tech-badge"><i class="fa-solid fa-cubes"></i> Modules ES6</span>
+                        <span class="tech-badge"><i class="fa-solid fa-floppy-disk"></i> LocalStorage</span>
+                        <span class="tech-badge"><i class="fa-solid fa-server"></i> Firebase Hosting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competences -->
+    <section class="competences-section section">
+        <div class="container">
+            <h2 class="section-title">Compétences mobilisées</h2>
+            <p class="section-subtitle">Compétences du référentiel BTS SIO développées lors de ce projet</p>
+
+            <div class="competences-list">
+                <div class="comp-item">
+                    <div class="comp-id">C1</div>
+                    <h4>Recenser et identifier les ressources numériques</h4>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C2</div>
+                    <h4>Exploiter des référentiels, normes et standards</h4>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C5</div>
+                    <h4>Gérer des sauvegardes</h4>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C9</div>
+                    <h4>Traiter des demandes concernant les applications</h4>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C14</div>
+                    <h4>Planifier les activités</h4>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-id">C17</div>
+                    <h4>Déployer un service</h4>
+                </div>
+            </div>
+
+            <!-- Back to portfolio -->
+            <div style="text-align: center;">
+                <a href="../index.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Retour au Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Ambient Light Background -->
+    <div class="ambient-light"></div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

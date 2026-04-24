@@ -1,28 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Navigation Mobile (Burger Menu)
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
-
-    burger.addEventListener('click', () => {
-        // Toggle Nav
-        nav.classList.toggle('nav-active');
-
-        // Burger Animation
-        burger.classList.toggle('toggle');
-    });
-
-    // Fermer le menu mobile lors d'un clic sur un lien
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (nav.classList.contains('nav-active')) {
-                nav.classList.remove('nav-active');
-                burger.classList.remove('toggle');
-            }
-        });
-    });
-
     // Smooth Scrolling pour les ancres avec offset pour la navbar fixe
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -66,26 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
-
-    // Mobile Dropdown Handling
-    const dropdownTrigger = document.querySelector('.dropdown-trigger');
-    const dropdownContainer = document.querySelector('.dropdown-container');
-
-    if (dropdownTrigger && dropdownContainer) {
-        dropdownTrigger.addEventListener('click', (e) => {
-            // Uniquement si on est sur mobile ou tablette (responsive logic simplistic check via CSS display or window width)
-            if (window.innerWidth <= 768) {
-                e.preventDefault(); // Empêche le lien de scroll si c'était un lien
-                dropdownContainer.classList.toggle('active');
-
-                // Rotation de l'icône
-                const icon = dropdownTrigger.querySelector('i');
-                if (icon) {
-                    icon.style.transform = dropdownContainer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-                }
-            }
-        });
-    }
 
     /* --- Ambient Light Scroll Reaction (The Fish) --- */
     const ambientLight = document.querySelector('.ambient-light');

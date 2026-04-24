@@ -16,41 +16,15 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">CB.</a>
-            <ul class="nav-links">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="competences.html">BTS SIO</a></li>
-                <li class="dropdown-container">
-                    <a href="#projects" class="dropdown-trigger">
-                        Sarko Universe <i class="fa-solid fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://sarkozyno-fortune.fr/" target="_blank" class="dropdown-item">Sarkozyno</a>
-                        </li>
-                        <li><a href="#" class="dropdown-item">SarkoMarket</a></li>
-                        <li><a href="#" class="dropdown-item">SarkoenZonzon</a></li>
-                        <li><a href="#" class="dropdown-item">Sarkartyno</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </div>
-    </nav>
+    <!-- Header (chargé dynamiquement) -->
+    <div id="header-placeholder"></div>
+    <script src="/includes/include.js"></script>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="container hero-content">
             <h1 class="hero-title">Bonjour, je suis <span class="highlight">CLOT Baptiste</span></h1>
-            <p class="hero-subtitle">Étudiant & Développeur Passionné</p>
+            <p class="hero-subtitle">Étudiant</p>
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">Voir mes projets</a>
                 <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -176,14 +150,14 @@
                             <span>E-commerce</span>
                         </div>
                         <div class="project-links" style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px;">
-                            <a href="https://sarkozyno-fortune.fr/" target="_blank" class="btn btn-secondary"
+                            <a href="/Site/sarkozyno.html" target="_blank" class="btn btn-secondary"
                                 style="font-size: 0.85rem; padding: 10px 20px;">Sarkozyno</a>
-                            <a href="#" class="btn btn-secondary"
+                            <a href="/Site/sarkomarket.html" class="btn btn-secondary"
                                 style="font-size: 0.85rem; padding: 10px 20px;">SarkoMarket</a>
-                            <a href="#" class="btn btn-secondary"
+                            <a href="/Site/Sarkoenzonzon.html" class="btn btn-secondary"
                                 style="font-size: 0.85rem; padding: 10px 20px;">SarkoenZonzon</a>
-                            <a href="#" class="btn btn-secondary"
-                                style="font-size: 0.85rem; padding: 10px 20px;">Sarkartyno</a>
+                            <a href="/Site/sarkard.html" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">Sarkard</a>
                         </div>
                     </div>
                 </article>
@@ -192,15 +166,19 @@
                 <article class="project-card">
                     <div class="project-image placeholder-img"></div>
                     <div class="project-info">
-                        <h3>FlashMind</h3>
-                        <p>Site de révision intégrant un agent IA pour l'aide à l'apprentissage.</p>
+                        <h3>Flashcards IA</h3>
+                        <p>Site de révision intégrant Gemini AI pour générer des flashcards automatiquement.</p>
                         <div class="tags">
                             <span>IA</span>
                             <span>Éducation</span>
-                            <span>Integration</span>
+                            <span>React</span>
                         </div>
-                        <a href="https://site-flash-card-b59c4.web.app/" target="_blank" class="btn btn-secondary"
-                            style="margin-top: 24px; margin-left:0; font-size:0.9rem;">Visiter le site</a>
+                        <div class="project-links" style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="/Site/flashmind.html" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">Voir le projet</a>
+                            <a href="https://site-flash-card-b59c4.web.app/" target="_blank" class="btn btn-secondary"
+                                style="font-size: 0.85rem; padding: 10px 20px;">Visiter le site</a>
+                        </div>
                     </div>
                 </article>
 
@@ -250,15 +228,8 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 CLOT Baptiste. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer (chargé dynamiquement) -->
+    <div id="footer-placeholder"></div>
 
     <!-- Ambient Light Background -->
     <div class="ambient-light"></div>
